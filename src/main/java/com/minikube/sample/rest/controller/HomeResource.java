@@ -19,8 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeResource {
 
+	private final PropertiesConfig config;
+
 	@Autowired
-	PropertiesConfig config;
+	public HomeResource(PropertiesConfig config) {
+		this.config = config;
+	}
 
 	@Value("${EVN_DEPOLYED:local}")
 	private String environment;
